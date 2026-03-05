@@ -1,104 +1,94 @@
-# 🎓 Mantessa (StudyOS)
+# 🎓 Mantessa
 
-**Mantessa** is a premier, study-oriented productivity workspace tailored for students and lifelong learners. It unifies task management, scheduling, note-taking, and creative tools into a single, cohesive platform. Built on the robust **MERN Stack** (MongoDB, Express, React, Node.js), Mantessa features a modern **SaaS dashboard UI** inspired by **light neumorphism** to create a clean, fluid, and distraction-free environment for deep focus.
+A full-stack study-oriented productivity workspace for students and learners. Combines task management, scheduling, note-taking, real-time collaboration, and creative tools in one platform.
 
----
-
-## ✨ Core Features
-
-### 🖥️ Immersive Dashboard
-
-The central hub of your academic life, designed for immediate insight and action.
-
-- **Fluid Layout**: Dynamically expanding main content that stretches intuitively when side panels are collapsed.
-- **Floating Navigation**: A sleek vertical dock that expands on desktop hover and compresses to icon-only on mobile.
-- **Focus Timer (Pomodoro)**: Built-in timer with progress rings, live elapsed-time tracking, and session persistence via Zustand.
-- **Productivity Visualization**:
-  - **Stats Cards**: Study Hours (live-updated during sessions), Tasks Done, Current Streak, and Focus Score.
-  - **Weekly Activity Chart**: Bar chart of daily study minutes for the past week.
-- **Smart Greetings**: Personalized welcome with pending task count and quick actions.
-
-### 🛠️ Integrated Productivity Suite
-
-Accessible instantly from the floating sidebar — no app-switching required:
-
-- **📅 Academic Calendar**: Month / Week / Day views for scheduling exams, assignments, and study blocks. Event reminders, search, and color-coded event types.
-- **🧮 Scientific Calculator**: Embedded calculator for quick computations with calculation history stored in the database.
-- **📝 Sticky Notes**: Color-coded notes and checklists, categorized by Personal / Study / Ideas / Work. Masonry grid layout.
-- **📓 Notepad (Notebooks)**: Full rich-text editor with Markdown support, syntax-highlighted code blocks, tagging, and real-time collaborative editing via Socket.IO (Shared Notebooks).
-- **🎨 Drawing Pad**: Infinite canvas with pen / highlighter / eraser tools, adjustable brush size and opacity, color palette, and sketch saving.
-- **✅ Smart Todo Lists**: Kanban board with To Do → In Progress → Completed columns. Drag-to-move, priority levels (Low / Medium / High / Urgent), due dates, and overdue tracking.
-- **📚 Subjects**: Track academic subjects with chapters, task counts, and progress bars.
-
-### 👤 User Profile & Social Links
-
-- **Profile Links**: Add LinkedIn, GitHub, Reddit, Discord, and Quora links during signup or later via the Profile Links modal.
-- **Social Icons**: Displayed inline in the right panel; clickable links open in a new tab.
-- **Edit Account**: Update social links anytime from the settings menu.
-
-### 🤖 AI Nudges
-
-- **NudgesPanel**: Context-aware productivity nudges that surface actionable tips based on your current stats and activity.
-
-### 📄 PDF Tools
-
-- Built-in PDF viewer and tools accessible from the right panel.
-
-### 🎨 UI & Design Language
-
-- **Modern SaaS Aesthetics**: Clean light/dark theme with soft neumorphism-inspired shadows (`shadow-soft`, `shadow-inner`).
-- **Premium Typography**: **Plus Jakarta Sans** for crisp, highly legible data presentation.
-- **Micro-Interactions**: Framer Motion entry/exit animations, hover-expansion effects, and smooth CSS transitions.
-- **Fully Responsive**: Mobile-first approach with collapsible sidebar, slide-out right panel, hamburger menu on the landing page, touch-friendly action buttons, and adaptive layouts across all screen sizes.
-- **Theme Toggle**: Switch between light and dark mode from the right panel.
+Built with the **MERN Stack** (MongoDB, Express, React, Node.js) featuring a neumorphism-inspired UI with light/dark theme support.
 
 ---
 
-## 🏗️ Technical Architecture
+## ✨ Features
 
-### Frontend (Client)
+### Dashboard
+- Productivity stats — study hours, tasks completed, current streak, focus score
+- Weekly activity chart (daily study minutes)
+- Personalized greeting with pending task count
+- Collapsible sidebar and right panel for a fluid layout
+
+### Productivity Tools
+- **📅 Calendar** — Month / Week / Day views, color-coded events, search and reminders
+- **🧮 Calculator** — Scientific calculator with saved calculation history
+- **📝 Sticky Notes** — Color-coded notes with categories (Personal / Study / Ideas / Work), masonry grid
+- **📓 Notebooks** — Rich-text editor with code blocks, syntax highlighting, tagging, `.docx` import, and PDF export
+- **🎨 Drawing Pad** — Canvas with pen / highlighter / eraser, adjustable brush, color palette, sketch saving
+- **✅ Todo Lists** — Kanban board (To Do → In Progress → Completed) with priority levels and due dates
+- **📚 Subjects** — Track subjects with chapters, task counts, and progress bars
+
+### Real-Time Collaboration
+- Share notebooks via link (`/shared/:id`)
+- Live collaborative editing powered by Socket.IO
+- Active user count displayed per notebook
+
+### User Profile
+- Editable username, email, and avatar on a dedicated **Edit Profile** page
+- Social links — LinkedIn, GitHub, Reddit, Discord, Quora
+- Avatar selection during signup and in profile settings
+
+### Focus Timer
+- Pomodoro-style timer with progress ring
+- Live elapsed-time tracking
+- Session history persisted to the database
+
+### Other
+- **AI Nudges** — Context-aware productivity tips based on activity
+- **PDF Tools** — Built-in PDF viewer accessible from the right panel
+- **Theme Toggle** — Light / dark mode
+
+---
+
+## 🏗️ Tech Stack
+
+### Frontend
 
 | Layer | Technology |
 |-------|-----------|
-| **Framework** | React 19 (Vite 7) |
-| **Styling** | Tailwind CSS v4 — CSS-first `@theme` variables in `index.css` |
-| **Animations** | Framer Motion 12 |
-| **Icons** | Lucide React + React Icons (social brands) |
-| **State** | Zustand (dashboard, focus, nudge, theme stores) + React Context (auth) |
-| **Routing** | React Router v7 |
-| **Real-time** | Socket.IO Client |
-| **PDF** | pdfjs-dist, jsPDF, html2canvas |
-| **Doc Import** | Mammoth (`.docx` → HTML) |
+| Framework | React 19 + Vite 7 |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion 12 |
+| Icons | Lucide React + React Icons |
+| State | Zustand 5 (dashboard, focus, nudge, layout, theme) + React Context (auth) |
+| Routing | React Router v7 |
+| Real-time | Socket.IO Client 4 |
+| PDF | pdfjs-dist, jsPDF, html2canvas |
+| Doc Import | Mammoth (`.docx` → HTML) |
 
-### Backend (Server)
+### Backend
 
 | Layer | Technology |
 |-------|-----------|
-| **Runtime** | Node.js + Express 5 |
-| **Database** | MongoDB via Mongoose 9 |
-| **Auth** | JWT (httpOnly cookies) + bcryptjs |
-| **Real-time** | Socket.IO |
-| **File Storage** | Local filesystem (`StudyOS_Data/notebooks/`) |
+| Runtime | Node.js + Express 5 |
+| Database | MongoDB via Mongoose 9 |
+| Auth | JWT (httpOnly cookies) + bcryptjs |
+| Real-time | Socket.IO 4 |
 
 ### Data Models
 
 `User` · `UserStat` · `Task` · `Event` · `Note` · `Notebook` · `Sketch` · `Subject` · `Calculation` · `FocusSession`
 
-### API Routes
+### API Endpoints
 
 | Prefix | Resource |
 |--------|----------|
 | `/api/auth` | Register, Login, Logout, Profile, Social Links |
+| `/api/dashboard` | Aggregated stats & weekly activity |
 | `/api/tasks` | CRUD tasks with priority & status |
-| `/api/events` | Calendar events with reminders |
+| `/api/events` | Calendar events |
 | `/api/notes` | Sticky notes |
-| `/api/notebooks` | Rich-text notebooks |
+| `/api/notebooks` | Notebooks + shared collaboration |
 | `/api/sketches` | Drawing pad sketches |
 | `/api/subjects` | Academic subjects |
 | `/api/calculator` | Calculation history |
 | `/api/focus` | Focus sessions (start / stop / history) |
-| `/api/dashboard` | Aggregated stats & weekly activity |
-| `/api/localsave` | Local file persistence |
+| `/api/local-save` | Local file persistence |
 
 ---
 
@@ -106,122 +96,105 @@ Accessible instantly from the floating sidebar — no app-switching required:
 
 ### Prerequisites
 
-- **Node.js** v18.0.0 or higher
-- **MongoDB** — a running local instance or cloud URI (e.g. MongoDB Atlas)
-- **Git**
+- Node.js v18+
+- MongoDB (local or Atlas)
+- Git
 
-### Installation
+### Setup
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/Mantessa.git
-   cd Mantessa
-   ```
+```bash
+# Clone
+git clone https://github.com/VivekChaurasiya95/StudyOS_Vivek.git
+cd StudyOS_Vivek
 
-2. **Install Dependencies**
+# Install dependencies
+cd client && npm install
+cd ../server && npm install
+```
 
-   ```bash
-   # Client
-   cd client
-   npm install
+Create `server/.env`:
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/mantessa
+JWT_SECRET=your_secret_key
+NODE_ENV=development
+```
 
-   # Server
-   cd ../server
-   npm install
-   ```
+### Run
 
-3. **Environment Configuration**
+```bash
+# Terminal 1 — Backend
+cd server
+npm run dev
 
-   Create a `.env` file in the `server/` directory:
-   ```env
-   PORT=5000
-   MONGO_URI=mongodb://localhost:27017/studyos
-   JWT_SECRET=your_super_secret_key_change_this
-   ```
+# Terminal 2 — Frontend
+cd client
+npm run dev
+```
 
-4. **Launch the Application**
-
-   Open two terminal windows:
-
-   ```bash
-   # Terminal 1 — Backend
-   cd server
-   npm run dev        # uses nodemon for hot-reload
-   ```
-
-   ```bash
-   # Terminal 2 — Frontend
-   cd client
-   npm run dev        # Vite dev server on http://localhost:5173
-   ```
+Frontend runs on `http://localhost:5173`, backend on `http://localhost:5000`.
 
 ---
 
-## 📂 Folder Structure
+## 📂 Project Structure
 
 ```
-Mantessa/
-├── client/                          # React Frontend
-│   ├── public/                      # Static assets (logo, favicon)
-│   ├── src/
-│   │   ├── assets/                  # Images & global static files
-│   │   ├── components/
-│   │   │   ├── Sidebar.jsx          # Floating hover-expand navigation
-│   │   │   ├── RightPanel.jsx       # Focus timer, stats, profile, PDF tools
-│   │   │   ├── NudgesPanel.jsx      # AI productivity nudges
-│   │   │   ├── ProfileLinksModal.jsx # Edit social links modal
-│   │   │   ├── PdfTools.jsx         # PDF viewer & utilities
-│   │   │   ├── Character.jsx        # Login page mascot animation
-│   │   │   └── ProtectedRoute.jsx   # Auth guard
-│   │   ├── context/
-│   │   │   └── AuthContext.jsx      # Auth state (login, register, social links)
-│   │   ├── hooks/                   # Custom React hooks
-│   │   ├── store/
-│   │   │   ├── dashboardStore.js    # Dashboard stats (Zustand)
-│   │   │   ├── focusStore.js        # Focus timer state (Zustand)
-│   │   │   ├── nudgeStore.js        # Nudge panel state (Zustand)
-│   │   │   └── themeStore.js        # Light / dark theme (Zustand)
-│   │   ├── pages/
-│   │   │   ├── LandingPage.jsx      # Public marketing page
-│   │   │   ├── Login.jsx            # Auth (login + signup with social links)
-│   │   │   ├── Dashboard.jsx        # Main hub
-│   │   │   ├── TodoList.jsx         # Kanban task board
-│   │   │   ├── Calendar.jsx         # Month / Week / Day calendar
-│   │   │   ├── Calculator.jsx       # Scientific calculator
-│   │   │   ├── StickyNotes.jsx      # Notes & checklists
-│   │   │   ├── Notepad.jsx          # Rich-text notebook editor
-│   │   │   ├── SharedNotebook.jsx   # Real-time collaborative editing
-│   │   │   ├── DrawingPad.jsx       # Infinite drawing canvas
-│   │   │   └── Subjects.jsx         # Academic subject tracker
-│   │   ├── index.css                # Tailwind v4 theme & custom styles
-│   │   ├── App.jsx                  # Route definitions
-│   │   └── main.jsx                 # Entry point (axios defaults)
-│   ├── index.html
-│   └── vite.config.js
+├── client/
+│   └── src/
+│       ├── assets/avatar/           # User avatar images
+│       ├── components/
+│       │   ├── Sidebar.jsx          # Floating navigation dock
+│       │   ├── RightPanel.jsx       # Focus timer, stats, profile, PDF tools
+│       │   ├── NudgesPanel.jsx      # Productivity nudges
+│       │   ├── ProfileLinksModal.jsx # Social links modal
+│       │   ├── PdfTools.jsx         # PDF viewer
+│       │   ├── Character.jsx        # Login page mascot
+│       │   └── ProtectedRoute.jsx   # Auth guard
+│       ├── context/
+│       │   └── AuthContext.jsx      # Auth state & actions
+│       ├── hooks/
+│       │   └── useSocket.js         # Socket.IO hook
+│       ├── store/
+│       │   ├── dashboardStore.js    # Dashboard stats
+│       │   ├── focusStore.js        # Focus timer state
+│       │   ├── layoutStore.js       # UI layout state
+│       │   ├── nudgeStore.js        # Nudge panel state
+│       │   └── themeStore.js        # Dark / light theme
+│       ├── pages/
+│       │   ├── LandingPage.jsx      # Public landing page
+│       │   ├── Login.jsx            # Login + Signup
+│       │   ├── Dashboard.jsx        # Main hub
+│       │   ├── EditProfile.jsx      # Profile editing page
+│       │   ├── TodoList.jsx         # Kanban task board
+│       │   ├── Calendar.jsx         # Event calendar
+│       │   ├── Calculator.jsx       # Scientific calculator
+│       │   ├── StickyNotes.jsx      # Quick notes
+│       │   ├── Notepad.jsx          # Rich-text notebook editor
+│       │   ├── SharedNotebook.jsx   # Real-time collaborative notebook
+│       │   ├── DrawingPad.jsx       # Drawing canvas
+│       │   └── Subjects.jsx         # Subject tracker
+│       ├── index.css                # Tailwind theme & styles
+│       ├── App.jsx                  # Routes
+│       └── main.jsx                 # Entry point
 │
-├── server/                          # Express API Server
-│   ├── controllers/                 # Route handlers (11 controllers)
-│   ├── middleware/                   # Auth middleware (JWT verification)
-│   ├── models/                      # Mongoose schemas (10 models)
-│   ├── routes/                      # API route definitions (11 routers)
-│   └── index.js                     # Server entry, Socket.IO setup
+├── server/
+│   ├── controllers/                 # 10 route handlers
+│   ├── middleware/
+│   │   └── authMiddleware.js        # JWT verification
+│   ├── models/                      # 10 Mongoose schemas
+│   ├── routes/                      # 11 API routers
+│   └── index.js                     # Express + Socket.IO entry
 │
-└── StudyOS_Data/                    # Local file storage
-    └── notebooks/                   # Saved notebook .json & .md files
+└── StudyOS_Data/
+    └── notebooks/                   # Saved notebook JSON files
 ```
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add YourFeature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
 5. Open a Pull Request
-
----
-
-_Built with ❤️ for the academic community._
