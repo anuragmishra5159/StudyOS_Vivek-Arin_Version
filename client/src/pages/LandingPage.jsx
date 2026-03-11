@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import av1 from "../assets/avatar/avatar_r1_c1_processed_by_imagy.jpg";
+import av2 from "../assets/avatar/avatar_r2_c2_processed_by_imagy.jpg";
+import av3 from "../assets/avatar/avatar_r3_c3_processed_by_imagy.jpg";
 import {
   BookOpen,
   Calendar,
@@ -423,9 +426,9 @@ export default function LandingPage() {
                 </Link>
                 <div className="flex items-center gap-4 text-sm font-semibold text-text-secondary px-4">
                   <div className="flex -space-x-2">
-                     <div className="w-8 h-8 rounded-full border-2 border-background bg-slate-200 dark:bg-slate-600"></div>
-                     <div className="w-8 h-8 rounded-full border-2 border-background bg-slate-300 dark:bg-slate-500"></div>
-                     <div className="w-8 h-8 rounded-full border-2 border-background bg-slate-400 dark:bg-slate-400"></div>
+                     <img src={av1} className="w-8 h-8 rounded-full border-2 border-background object-cover" alt="student" />
+                     <img src={av2} className="w-8 h-8 rounded-full border-2 border-background object-cover" alt="student" />
+                     <img src={av3} className="w-8 h-8 rounded-full border-2 border-background object-cover" alt="student" />
                   </div>
                   <span>Trusted by 2,000+ students</span>
                 </div>
