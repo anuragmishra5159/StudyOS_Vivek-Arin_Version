@@ -197,10 +197,8 @@ exports.registerUser = async (req, res) => {
             { name: "Advanced Graphs", progress: 40, tasks: 2, completed: 1 },
           ],
         },
-      ]);
-
-        ]),
-        Task.create([
+      ]),
+      Task.create([
         {
           user: user._id,
           title: "Research Paper Outline",
@@ -215,10 +213,8 @@ exports.registerUser = async (req, res) => {
           progress: 65,
         },
         { user: user._id, title: "Literature Review", status: "completed" },
-      ]);
-
-        ]),
-        Event.create([
+      ]),
+      Event.create([
         {
           user: user._id,
           title: "Physics: Wave Motion",
@@ -243,10 +239,8 @@ exports.registerUser = async (req, res) => {
           type: "Assignment",
           date: new Date(Date.now() + 7 * 86400000),
         },
-      ]);
-
-        ]),
-        Note.create([
+      ]),
+      Note.create([
         {
           user: user._id,
           category: "Study",
