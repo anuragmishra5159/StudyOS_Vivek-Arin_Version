@@ -314,10 +314,10 @@ export default function LandingPage() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src="/logo.jpeg" alt="Mantessa" className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-contain shadow-lg shadow-emerald-200 dark:shadow-none" />
             <span className="text-lg sm:text-xl font-bold tracking-tight text-text-main">Mantessa</span>
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
             {["Features", "Methodology", "Testimonials"].map((item) => (
