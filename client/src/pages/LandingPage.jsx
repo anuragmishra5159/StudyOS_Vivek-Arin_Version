@@ -118,7 +118,7 @@ function DashboardMockup() {
         </div>
 
         {/* Browser Body */}
-        <div className="p-1 flex h-[350px] bg-background">
+        <div className="p-1 flex h-87.5 bg-background">
            {/* Sidebar */}
            <div className="w-16 bg-surface m-2 mr-1 rounded-2xl border border-border flex flex-col items-center py-6 gap-6 shadow-sm">
               <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-200 dark:shadow-none">
@@ -405,7 +405,7 @@ export default function LandingPage() {
               
               <motion.h1 variants={fadeUp} className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-text-main leading-[1.1] mb-4 sm:mb-6">
                 Master your <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">
                   academic life.
                 </span>
               </motion.h1>
@@ -552,7 +552,7 @@ export default function LandingPage() {
 
                  <div className="relative">
                     {/* Abstract shapes */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-emerald-500/30 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-emerald-500/30 rounded-full blur-3xl"></div>
                     
                     {/* Simple UI Card Representation */}
                     <div className="bg-white/10 backdrop-blur-md border border-white/10 dark:border-white/5 rounded-2xl p-8 max-w-sm mx-auto shadow-2xl">
@@ -600,7 +600,7 @@ export default function LandingPage() {
                     ))}
                  </div>
               </div>
-              <div className="bg-surface-hover rounded-2xl sm:rounded-[2rem] h-[300px] sm:h-[400px] md:h-[500px] relative overflow-hidden text-text-muted">
+              <div className="bg-surface-hover rounded-2xl sm:rounded-4xl h-75 sm:h-100 md:h-125 relative overflow-hidden text-text-muted">
                  {/* Decorative Illustration Area */}
                  <div className="absolute inset-0 flex items-center justify-center">
                     <div className="relative w-64 h-64">
@@ -680,7 +680,7 @@ export default function LandingPage() {
 
         {/* ── CTA ─────────────────────────────────────────────────────── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center pb-12 sm:pb-20">
-           <div className="bg-gradient-to-tr from-emerald-600 to-teal-600 rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-20 text-white shadow-2xl shadow-emerald-200 dark:shadow-none relative overflow-hidden">
+           <div className="bg-linear-to-tr from-emerald-600 to-teal-600 rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-20 text-white shadow-2xl shadow-emerald-200 dark:shadow-none relative overflow-hidden">
                {/* Decorative circles */}
                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 dark:bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
                <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-400/20 dark:bg-amber-400/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
