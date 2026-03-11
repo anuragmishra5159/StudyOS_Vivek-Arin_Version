@@ -1,0 +1,249 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  /* Dynamically resolved CSS variables from :root / .dark */
+  --color-background: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-surface-hover: var(--app-surface-hover);
+
+  --color-primary: #10b981;
+  --color-primary-dark: #059669;
+  --color-primary-light: var(--app-primary-light);
+
+  --color-text-main: var(--app-text-main);
+  --color-text-secondary: var(--app-text-secondary);
+  --color-text-muted: var(--app-text-muted);
+
+  --color-border: var(--app-border);
+
+  --shadow-soft: var(--app-shadow-soft);
+  --shadow-card: var(--app-shadow-card);
+  --shadow-float: var(--app-shadow-float);
+  --shadow-glow: var(--app-shadow-glow);
+  --shadow-inner: var(--app-shadow-inner);
+}
+
+@layer base {
+  :root {
+    --app-bg: #f4f7fe;
+    --app-surface: #ffffff;
+    --app-surface-hover: #f8fafc;
+
+    --app-primary-light: #d1fae5;
+
+    --app-text-main: #1e293b;
+    --app-text-secondary: #475569;
+    --app-text-muted: #94a3b8;
+
+    --app-border: #e2e8f0;
+
+    --app-shadow-soft: 6px 6px 12px #e2e6f0, -6px -6px 12px #ffffff;
+    --app-shadow-card: 10px 10px 20px #e2e6f0, -10px -10px 20px #ffffff;
+    --app-shadow-float: 15px 15px 30px #e2e6f0, -15px -15px 30px #ffffff;
+    --app-shadow-glow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    --app-shadow-inner:
+      inset 4px 4px 10px #e2e6f0, inset -6px -6px 10px #ffffff;
+  }
+
+  .dark {
+    --app-bg: #0f172a;
+    --app-surface: #1e293b;
+    --app-surface-hover: #334155;
+
+    --app-primary-light: #064e3b; /* Darker primary-light for dark mode (or could be 900) */
+
+    --app-text-main: #f8fafc;
+    --app-text-secondary: #cbd5e1;
+    --app-text-muted: #94a3b8;
+
+    --app-border: #334155;
+
+    --app-shadow-soft: 4px 4px 8px #0b1121, -4px -4px 8px #131d33;
+    --app-shadow-card: 8px 8px 16px #0b1121, -8px -8px 16px #131d33;
+    --app-shadow-float: 12px 12px 24px #0b1121, -12px -12px 24px #131d33;
+    --app-shadow-glow: 0 4px 14px rgba(16, 185, 129, 0.2);
+    --app-shadow-inner:
+      inset 2px 2px 6px rgba(0, 0, 0, 0.5),
+      inset -2px -2px 6px rgba(255, 255, 255, 0.05);
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-text-main font-sans antialiased;
+  }
+
+  /* Safe area for notched phones */
+  @supports (padding: env(safe-area-inset-bottom)) {
+    body {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl font-bold shadow-glow hover:bg-primary-dark active:scale-95 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-surface rounded-2xl shadow-card border border-border p-4 sm:p-6 hover:shadow-float transition-all duration-300;
+  }
+
+  .input-field {
+    @apply w-full bg-surface border-none rounded-xl px-4 py-3 text-text-main placeholder-text-muted outline-none shadow-inner focus:ring-2 focus:ring-primary/50 transition-all;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 font-medium text-text-muted hover:text-text-main hover:bg-surface-hover;
+  }
+
+  .sidebar-link-active {
+    @apply bg-primary/10 text-primary font-semibold;
+  }
+
+  /* Right panel transition used by main-content areas */
+  .right-panel-transition {
+    transition: margin-right 0.3s ease-in-out;
+  }
+
+  /* Responsive touch-friendly tap targets */
+  @media (hover: none) and (pointer: coarse) {
+    button,
+    a,
+    [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--app-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--app-text-muted);
+}
+
+/* Editable block styles */
+.editable-block:empty::before {
+  content: attr(data-placeholder);
+  color: var(--app-text-muted);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.editable-block h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--app-text-main);
+  margin: 1.5rem 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.editable-block h2::before {
+  content: "";
+  width: 4px;
+  height: 1.5rem;
+  background: var(--color-primary);
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.editable-block h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--app-text-main);
+  margin: 1rem 0 0.5rem;
+}
+
+.editable-block p,
+.editable-block div {
+  margin: 0.25em 0;
+}
+
+.editable-block ul,
+.editable-block ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.editable-block ul {
+  list-style: disc;
+}
+
+.editable-block ol {
+  list-style: decimal;
+}
+
+.editable-block li {
+  margin: 0.25rem 0;
+}
+
+.editable-block a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.editable-block img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 0.75rem 0;
+}
+
+/* Alignment support for contentEditable */
+.editable-block [style*="text-align: left"],
+.editable-block [align="left"] {
+  text-align: left;
+}
+.editable-block [style*="text-align: center"],
+.editable-block [align="center"] {
+  text-align: center;
+}
+.editable-block [style*="text-align: right"],
+.editable-block [align="right"] {
+  text-align: right;
+}
+.editable-block [style*="text-align: justify"],
+.editable-block [align="justify"] {
+  text-align: justify;
+}
+/* Ensure paragraphs/divs generated by execCommand respect alignment */
+.editable-block div[style],
+.editable-block p[style] {
+  text-align: inherit;
+}
+
+.editable-block strong,
+.editable-block b {
+  font-weight: 700;
+  color: var(--app-text-main);
+}
+
+.editable-block em,
+.editable-block i {
+  font-style: italic;
+}
