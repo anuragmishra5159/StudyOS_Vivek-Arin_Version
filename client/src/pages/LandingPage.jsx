@@ -740,12 +740,12 @@ export default function LandingPage() {
             {/* Ecosystem */}
             <div className="flex flex-col gap-3">
               <h4 className="text-sm font-semibold text-text-main uppercase tracking-wider">Ecosystem</h4>
-              <a href="https://chronallabs.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://chronallab-site.vercel.app/" target="_blank" rel="noopener noreferrer"
                 className="text-sm text-text-secondary hover:text-text-main transition-colors flex items-center gap-1.5">
                 ChronalLabs
                 <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
               </a>
-              <a href="https://byteedu.in" target="_blank" rel="noopener noreferrer"
+              <a href="https://byteedu.co.in/" target="_blank" rel="noopener noreferrer"
                 className="text-sm text-text-secondary hover:text-text-main transition-colors flex items-center gap-1.5">
                 ByteEdu Learning Platform
                 <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
